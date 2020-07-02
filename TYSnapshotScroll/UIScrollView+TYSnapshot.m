@@ -84,14 +84,13 @@
         if (self.contentSize.height > self.frame.size.height) {
             self.contentOffset = CGPointMake(0, self.contentSize.height - self.bounds.size.height + self.contentInset.bottom);
         }
-        
-        self.layer.frame = CGRectMake(0, 0, self.contentSize.width, self.contentSize.height);
     });
     
     CGFloat delayTime = [TYSnapshotManager defaultManager].delayTime;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayTime * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         UIImage* snapshotImage = nil;
         
+        self.layer.frame = CGRectMake(0, 0, self.contentSize.width, self.contentSize.height);
         self.contentOffset = CGPointZero;
         
         UIGraphicsBeginImageContextWithOptions(self.layer.frame.size, NO, [UIScreen mainScreen].scale);
