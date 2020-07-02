@@ -84,6 +84,8 @@
         if (self.contentSize.height > self.frame.size.height) {
             self.contentOffset = CGPointMake(0, self.contentSize.height - self.bounds.size.height + self.contentInset.bottom);
         }
+        
+        self.layer.frame = CGRectMake(0, 0, self.contentSize.width, self.contentSize.height);
     });
     
     CGFloat delayTime = [TYSnapshotManager defaultManager].delayTime;
